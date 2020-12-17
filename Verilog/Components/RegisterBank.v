@@ -7,7 +7,7 @@ output [15:0] DataOut1,DataOut2,DataOut3,DataOut4,DataOut5,DataOut6,DataOut7,Dat
 reg [15:0] registers[7:0];
 
 
-always @(posedge clk)
+always @(negedge clk)
 begin
     if(registerLoad)
     begin
