@@ -1,5 +1,7 @@
-module main(clk);
+module main(clk,grounds,display);
 input clk;
+output [3:0] grounds;
+output [6:0] display;
 
 reg [15:0] RAM [31:0];
 
@@ -8,7 +10,7 @@ wire [11:0] Addr;
 wire Memload;
 
 
-CPU cpu(Din,clk,Dout,Addr,MemLoad);
+CPU cpu(Din,clk,Dout,Addr,MemLoad,grounds,display);
 
 always @(posedge clk)
 begin

@@ -1,8 +1,10 @@
-module CPU(Din,clk,Dout,Addr,MemLoad);
+module CPU(Din,clk,Dout,Addr,MemLoad,grounds,display);
 input [15:0] Din;
 input clk;
 output [15:0] Dout;
 output [11:0] Addr;
+output [3:0] grounds;
+output [6:0] display;
 output MemLoad;
 
 wire [11:0] Din_0_11,relativeOffset , pc , jumpAddress , src2_11_0;
@@ -40,5 +42,7 @@ adder_12 adder(pc,relativeOffset,out);
 PC pc(jumpAddress,PcInc,PcLoad,clk,pc);
 
 mult2_to_1_12 addressMux(Addr, pc,src2_11_0,Armux);
+
+monitor monitor(RegOut1,grounds,display,clk);
 
 endmodule
