@@ -38,7 +38,7 @@ debounced debounced_pb1 (.dsin(pb1), .dsout_wire(d_pb1), .clk(clk));
 debounced debounced_pb2 (.dsin(pb2), .dsout_wire(d_pb2), .clk(clk));
 
 
-always @(posedge d_pb1 or posedge d_pb2) 
+always @(negedge d_pb1 or posedge d_pb2) 
    begin
 		if(d_pb2)
 				begin

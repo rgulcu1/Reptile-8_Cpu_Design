@@ -14,6 +14,7 @@ wire zeroresult;
 
 assign memwt=(state==ST);
 assign data_out = regbank[ir[8:6]];
+assign reg0 = regbank[0;
 
 localparam  FETCH=4'b0000,
             LDI=4'b0001,
@@ -86,18 +87,21 @@ always @(posedge clk)
 
  always @*  //ALU
         case (ir[11:9])
-            3'h0: result = regbank[ir[8:6]]+regbank[ir[5:3]];
-            3'h1: result = regbank[ir[8:6]]-regbank[ir[5:3]];
-            3'h2: result = regbank[ir[8:6]]&regbank[ir[5:3]];
+            3'h0: result = regbank[ir[8:6]]+regbank[ir[5:3]]; /// 000 000
+            3'h1: result = regbank[ir[8:6]]-regbank[ir[5:3]]; // 001 ***
+            3'h2: result = regbank[ir[8:6]]&regbank[ir[5:3]]; 
             3'h3: result = regbank[ir[8:6]]|regbank[ir[5:3]];
             3'h4: result = regbank[ir[8:6]]^regbank[ir[5:3]];
-            3'h7: case (ir[8:6])
-                        3'h0: result = regbank[ir[5:3]];
+            3'h7: 
+            begin
+               case (ir[8:6])
+                        3'h0: result = regbank[ir[5:3]]; // 111 000
                         3'h1: result = !regbank[ir[5:3]];
                         3'h2: result = regbank[ir[5:3]]+1;
                         3'h3: result = regbank[ir[5:3]]-1;
                         default: result=16'h0000;
-                    endcase
+                    endcase  
+            end
             default: result=16'h0000;
         endcase
  

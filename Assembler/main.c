@@ -161,7 +161,7 @@ int main(){
                     op1 = strtok(NULL,"\n\t\r ");
                     op2 = strtok(NULL,"\n\t\r ");
                     op3 = strtok(NULL,"\n\t\r ");
-                    chch = (op2[0]-48)| ((op1[0]-48)<<3)|((op3[0]-48)<<6);
+                    chch = ((op2[0]-48)<<6)| ((op1[0]-48))|((op3[0]-48)<<3);
                     program[counter]=0x7000+((chch)&0x01ff);
                     counter++;
                 }
@@ -170,7 +170,7 @@ int main(){
                     op1 = strtok(NULL,"\n\t\r ");
                     op2 = strtok(NULL,"\n\t\r ");
                     op3 = strtok(NULL,"\n\t\r ");
-                    chch = (op2[0]-48)| ((op1[0]-48)<<3)|((op3[0]-48)<<6);
+                    chch = ((op2[0]-48)<<6)| ((op1[0]-48))|((op3[0]-48)<<3);
                     program[counter]=0x7200+((chch)&0x01ff);
                     counter++;
                 }
@@ -179,7 +179,7 @@ int main(){
                     op1 = strtok(NULL,"\n\t\r ");
                     op2 = strtok(NULL,"\n\t\r ");
                     op3 = strtok(NULL,"\n\t\r ");
-                    chch = (op2[0]-48)| ((op1[0]-48)<<3)|((op3[0]-48)<<6);
+                    chch = ((op2[0]-48)<<6)| ((op1[0]-48))|((op3[0]-48)<<3);
                     program[counter]=0x7400+((chch)&0x01ff);
                     counter++;
                 }
@@ -188,7 +188,7 @@ int main(){
                     op1 = strtok(NULL,"\n\t\r ");
                     op2 = strtok(NULL,"\n\t\r ");
                     op3 = strtok(NULL,"\n\t\r ");
-                    chch = (op2[0]-48)| ((op1[0]-48)<<3)|((op3[0]-48)<<6);
+                    chch = ((op2[0]-48)<<6)| ((op1[0]-48))|((op3[0]-48)<<3);
                     program[counter]=0x7600+((chch)&0x01ff);
                     counter++;
                 }
@@ -197,7 +197,7 @@ int main(){
                     op1 = strtok(NULL,"\n\t\r ");
                     op2 = strtok(NULL,"\n\t\r ");
                     op3 = strtok(NULL,"\n\t\r ");
-                    chch = (op2[0]-48)| ((op1[0]-48)<<3)|((op3[0]-48)<<6);
+                    chch = ((op2[0]-48)<<6)| ((op1[0]-48))|((op3[0]-48)<<3);
                     program[counter]=0x7800+((chch)&0x01ff);
                     counter++;
                 }
