@@ -1,4 +1,4 @@
-module main(clk,grounds,display);
+module main(pushButton,grounds,display);
 input clk;
 output [3:0] grounds;
 output [6:0] display;
@@ -7,14 +7,16 @@ reg [15:0] RAM [31:0];
 
 wire [15:0] Din,Dout;
 wire [11:0] Addr;
+wire pb;
 wire Memload;
 
+assign Din = RAM[Addr];
+assign pb = ~pushbutton;
 
-CPU cpu(Din,clk,Dout,Addr,MemLoad,grounds,display);
+CPU cpu(Din,pb,Dout,Addr,MemLoad,grounds,display);
 
-always @(posedge clk)
+always @(posedge pb)
 begin
-    Din = RAM[Addr];
     if(MemLoad)
         RAM[Addr] = Dout;
 end

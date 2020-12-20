@@ -17,4 +17,7 @@ begin
             pcRegister <= jumpAddress;
     end
 end
+
+initial
+    pc <= 12'h000;
 endmodule
